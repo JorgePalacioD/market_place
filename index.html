@@ -6,51 +6,65 @@
     <link rel="stylesheet" href="style.css" />
     <title>shopall</title>
   </head>
+
   <body>
     <header>
       <div class="container_navbar">
         <img class="toggle_menu" src="/toggle_menu.png" alt="" srcset="" />
-        <div>
-          <input type="text" />
-          <img class="lens" src="/lens.png" alt="" srcset="" />
-        </div>
+        <form action="#" method="get">
+          <input type="text" name="search" id="search" placeholder="Buscar">
+          
+          
+        </form>
         <img class="user" src="/users.png" alt="" srcset="" />
         <img class="shoping_cart" src="/shopping_cart.png" alt="" />
       </div>
     </header>
     <div>
-      <main><h2>Shopall</h2></main>
+      <main>
+        <h2>Shopall</h2>
+        <div class="product_bar">
+          <ul>
+            <li>
+              <a href="">electronis</a>
+            </li>
+            <li>
+              <a href="">jewerely</a>
+            </li>
+            <li>
+              <a href="">mens</a>
+            </li>
+            <li>
+              <a href="">women</a>
+            </li>
+          </ul>
+        </div>
+      </main>
     </div>
-    <div class="product_bar">
-      <ul>
-        <li>
-          <a href="">electronis</a>
-        </li>
-        <li>
-          <a href="">jewerely</a>
-        </li>
-        <li>
-          <a href="">men</a>
-        </li>
-        <li>
-          <a href="">women</a>
-        </li>
-      </ul>
-    </div>
-    <div class="product_cards"></div>
+    <section class="contenido">
+      <div class="product_cards">
+        <div class="product_card">
+          <div class="product_img">
+            <img src="/product_img.png" alt="" srcset="" />
+          </div>
+          <div class="product_info">
+            <div class="product_name">
+              <a href="">product_name</a>
+            </div>
+            <div class="product_price">
+              <a href="">$100</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer>
-      <div class="social_media"></div>
-      <ul>
-        <li>
-          <a href=""><img src="/whatsapp.png" alt="" /></a>
-        </li>
-        <li>
-          <a href=""><img src="/facebook.png" alt="" /></a>
-        </li>
-        <li>
-          <a href=""><img src="/instagram.png" alt="" /></a>
-        </li>
-      </ul>
+      <div class="social_media">
+        <img src="/whatsapp.png" alt="" class="whatsapp" />
+        <img src="/facebook.png" alt="" class="facebook" />
+        <img src="/instagram.png" alt="" class="instagram" />
+      </div>
+      
     </footer>
   </body>
 </html>

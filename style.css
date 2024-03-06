@@ -17,7 +17,7 @@ body {
 }
 
 header {
-  padding: 10px 20px;
+  padding: 40px 20px;
 }
 
 .container_navbar {
@@ -26,34 +26,50 @@ header {
   align-items: center;
 }
 
-.toggle_menu {
-  width: 20px;
-  height: 20px;
+#search {
+  background-image: url(./lupa.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 98% center;
+  padding-right: 20px;
+  width: 200px;
+  height: 30px;
+  border: 2px solid #f7f5f8;
+  border-radius: 10px;
 }
-
-.lens {
-  width: 20px;
-  height: 20px;
+.toggle_menu {
+  width: 30px;
+  height: 30px;
   margin-left: 10px;
 }
 
+/* .lens{
+  width: 10px;
+  height: 10px;
+  margin-left: 1px;
+} */
+
 .user,
 .shoping_cart {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   margin-left: 10px;
 }
 
 main {
   text-align: center;
+  border-top: 2px solid #eee9e9;
 }
 
 h2 {
-  margin: 10px 0;
+  margin: 20px 0;
+  font-size: 44px;
+  color: #f16d1c;
 }
 
 .product_bar {
-  padding: 10px 20px;
+  padding: 29px 20px;
+  border-top: 2px solid #eee9e9;
 }
 
 .product_bar ul {
@@ -69,16 +85,83 @@ h2 {
 }
 
 .product_bar ul li a {
+  border: 1px solid #f7f5f8;
+  border-radius: 16px;
   text-decoration: none;
-  color: black;
-  padding: 5px 10px;
+  color: #f16d1c;
+  padding: 10px 21px;
+  background-color: #f7f5f8;
 }
 
 .product_cards {
   width: 30%;
+  height: 100px;
   float: left;
   box-sizing: border-box;
   padding: 10px;
   margin: 10px;
-  border: 1px solid #ddd;
+  border: 2px solid #f16d1c;
+  border-radius: 10px;
+  background-color: #46a6ea;
+}
+
+/* footer */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 2px solid #eee9e9;
+}
+
+.whatsapp,
+.facebook,
+.instagram {
+  width: 30px;
+  height: 30px;
+  margin-left: 1px;
+  text-align: center;
+}
+
+.social_media {
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.social_media ul {
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px;
+}
+.social_media ul li {
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.social_media li a {
+  color: #fff;
+}
+
+.social_media li a img {
+  width: 40px;
+  height: 30px;
+}
+
+/* RESPONSIBE*/
+
+.container_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* iPhone 14 Pro Max */
+@media only screen and (max-width: 428px) {
+  .container_navbar {
+    flex-wrap: wrap;
+  }
 }
