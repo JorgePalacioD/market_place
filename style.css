@@ -14,7 +14,14 @@ body {
   width: 100vw;
   height: auto;
   background-color: var(--main-color);
+  line-height: 1.2px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 14px;
+  font-style: normal;
+
 }
+
 
 header {
   padding: 40px 20px;
@@ -65,7 +72,13 @@ h2 {
   margin: 20px 0;
   font-size: 44px;
   color: #f16d1c;
+  line-height: 1.2px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 14px;
+  font-style: normal;
 }
+
 
 .product_bar {
   padding: 29px 20px;
@@ -89,7 +102,7 @@ h2 {
   border-radius: 16px;
   text-decoration: none;
   color: #f16d1c;
-  padding: 10px 21px;
+  padding: 3px 17px;
   background-color: #f7f5f8;
 }
 
