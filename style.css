@@ -84,7 +84,7 @@ main {
   left: 0;
   top: 0;
   width: 100%;
-  height: 60%;
+  height: 100%;
   background-color: #54535380; /* Fondo oscuro semi-transparente */
   overflow: auto;
 }
@@ -109,7 +109,6 @@ main {
   margin: 0 auto;
   padding: 0.6em;
   border-radius: 0.3em;
-  
 }
 /* Muestra el modal cuando se hace clic en el botón */
 
@@ -246,7 +245,6 @@ footer {
   position: sticky;
   width: 100%;
   border-top: 2px solid #eee9e9;
-  
 }
 
 .whatsapp,
