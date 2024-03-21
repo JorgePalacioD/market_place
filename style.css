@@ -75,6 +75,7 @@ main {
   align-items: center;
   flex-wrap: wrap;
   margin: 11px;
+  margin-left: 17px;
 }
 
 .modal {
@@ -90,19 +91,19 @@ main {
 }
 
 .modal img {
-  width: 50%;
-  height: 50%;
+  width: 80%;
+  /* height: 50%; */
   display: flex;
-  margin-left: 70px;
+  margin-left: 40px;
 }
 .modal h2 {
   font-size: 1rem;
   line-height: 1.5;
   font-weight: bold;
-  margin-top: 0.5rem;
-  text-align: cente;
+  margin-top: 1.5rem;
+  text-align: justify;
 }
-.modal p {
+.modal p{
   font-family: "Lato", sans-serif;
   color: #f16d1c;
   max-width: 75%;
@@ -110,6 +111,8 @@ main {
   padding: 0.6em;
   border-radius: 0.3em;
 }
+
+ 
 /* Muestra el modal cuando se hace clic en el botón */
 
 .modal-content {
@@ -118,6 +121,7 @@ main {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  height: 95%;
   border-radius: 10px;
 }
 
@@ -171,6 +175,7 @@ main {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  margin-top: 7px;
   margin-left: 16px;
 }
 .product-card h2 {

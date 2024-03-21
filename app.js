@@ -58,11 +58,17 @@ function createProducts(product) {
     const productRating = document.createElement("p");
     productRating.textContent = `Category: ${product.category}`;
 
+    const productDescription = document.createElement("h2");
+    productDescription.textContent = `Description: ${product.description}`;
+
+    
+
     modalContent.appendChild(closeBtn);
     modalContent.appendChild(productTitle);
     modalContent.appendChild(productImage);
     modalContent.appendChild(productPrice);
     modalContent.appendChild(productRating);
+    modalContent.appendChild(productDescription);
 
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
