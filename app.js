@@ -1,10 +1,13 @@
 window.addEventListener("DOMContentLoaded", getApi());
 
+
 function getApi() {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .then((data) => data.forEach((element) => createProducts(element)));
 }
+
+
 
 function createProducts(product) {
   const cardProduct = document.createElement("button");
@@ -35,6 +38,10 @@ function createProducts(product) {
   cardProduct.addEventListener("click", function () {
     showModal(product);
   });
+
+
+  // SE CREA MODAL
+
   function showModal(product) {
     const modal = document.createElement("div");
     modal.classList.add("modal");
@@ -61,7 +68,14 @@ function createProducts(product) {
     const productDescription = document.createElement("h2");
     productDescription.textContent = `Description: ${product.description}`;
 
-    
+    const carrito = document.createElement("button");
+    carrito.classList.add("comprar")
+    carrito.innerHTML = "Add to cart"
+
+
+
+
+
 
     modalContent.appendChild(closeBtn);
     modalContent.appendChild(productTitle);
@@ -69,6 +83,7 @@ function createProducts(product) {
     modalContent.appendChild(productPrice);
     modalContent.appendChild(productRating);
     modalContent.appendChild(productDescription);
+    modalContent.appendChild(carrito);
 
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
