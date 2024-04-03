@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", getApi());
 
 
+
 function getApi() {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
@@ -38,13 +39,36 @@ function createProducts(product) {
   cardProduct.addEventListener("click", function () {
     showModal(product);
   });
+  
+  function addToCart(product) {
+    
+    console.log(product);
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    console.log(cart);
+    
+    const existingProduct = cart.find((item) => item.id === product.id);
+    
+    if (existingProduct) {
+      existingProduct.quantity++;
+    } else {
+      cart.push({ ...product, quantity: 1 }); 
+    }
 
+    
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    
+    
+    updateCartDisplay(); 
+  }
+  
 
   // SE CREA MODAL
 
   function showModal(product) {
     const modal = document.createElement("div");
     modal.classList.add("modal");
+    
 
     const modalContent = document.createElement("div");
     modalContent.classList.add("modal-content");
@@ -69,14 +93,18 @@ function createProducts(product) {
     productDescription.textContent = `Description: ${product.description}`;
 
     const carrito = document.createElement("button");
+    console.log(carrito);
     carrito.classList.add("comprar")
     carrito.innerHTML = "Add to cart"
+    carrito.addEventListener("click", function () {
+      addToCart(product);
+    })
 
+    closeBtn.onclick = function () {
+      modal.style.display = "none";
+    };
 
-
-
-
-
+    productTitle.appendChild(closeBtn);
     modalContent.appendChild(closeBtn);
     modalContent.appendChild(productTitle);
     modalContent.appendChild(productImage);
@@ -105,3 +133,58 @@ function createProducts(product) {
 
   document.querySelector(".contenido").appendChild(cardProduct);
 }
+
+// Get the cart modal and close button elements
+const cartModal = document.getElementById("cart-modal");
+const closeButton = document.querySelector(".close");
+
+// Get the shopping cart image element (assuming it has an ID like "shopping-cart")
+const shoppingCartImage = document.getElementById("shopping-cart");
+
+// Event listener for opening the cart modal when the shopping cart image is clicked
+shoppingCartImage.addEventListener("click", function () {
+  cartModal.style.display = "block"; // Show the modal
+  updateCartDisplay(); // Update the cart display (function from previous example)
+});
+
+// Event listener for closing the cart modal when the close button is clicked
+closeButton.addEventListener("click", function () {
+  cartModal.style.display = "none"; // Hide the modal
+});
+
+
+// Function to update cart display
+
+function updateCartDisplay() {
+  const cartItemsList = document.getElementById("cart-items-list"); // Replace with your cart UI element ID
+  cartItemsList.innerHTML = ""; // Clear previous items
+
+  
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cart.length === 0) {
+    cartItemsList.innerHTML = '<li>Your cart is empty</li>';
+    
+    return;
+  }
+
+  let total = 0;
+  cart.forEach((product) => {
+    const itemHTML = `
+      <li>
+        ${product.title}
+         x ${product.quantity} - 
+         $${product.price * product.quantity}
+      </li>
+    `;
+    cartItemsList.innerHTML += itemHTML;
+    total += product.price * product.quantity;
+  });
+
+  const cartTotalElement = document.getElementById("cart-total"); 
+  cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+
+
+
