@@ -1,14 +1,10 @@
 window.addEventListener("DOMContentLoaded", getApi());
 
-
-
 function getApi() {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .then((data) => data.forEach((element) => createProducts(element)));
 }
-
-
 
 function createProducts(product) {
   const cardProduct = document.createElement("button");
@@ -39,36 +35,36 @@ function createProducts(product) {
   cardProduct.addEventListener("click", function () {
     showModal(product);
   });
-  
-  function addToCart(product) {
-    
-    console.log(product);
+
+  function addToCart(product, quantity) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    console.log(cart);
-    
+
     const existingProduct = cart.find((item) => item.id === product.id);
-    
+
     if (existingProduct) {
-      existingProduct.quantity++;
+      // Si el producto ya está en el carrito, mostrar una alerta
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Este artículo ya está en tu carrito de compras!",
+      });
+      existingProduct.quantity += quantity; // Sumar cantidad al producto existente
     } else {
-      cart.push({ ...product, quantity: 1 }); 
+      cart.push({ ...product, quantity: quantity });
+      Swal.fire({
+        icon: "success",
+        title: "¡Correcto!",
+        text: "Este artículo fue agregado al carrito de compras!",
+      });
     }
 
-    
     localStorage.setItem("cart", JSON.stringify(cart));
-
-    
-    
-    updateCartDisplay(); 
+    updateCartDisplay();
   }
-  
-
-  // SE CREA MODAL
 
   function showModal(product) {
     const modal = document.createElement("div");
     modal.classList.add("modal");
-    
 
     const modalContent = document.createElement("div");
     modalContent.classList.add("modal-content");
@@ -92,25 +88,30 @@ function createProducts(product) {
     const productDescription = document.createElement("h2");
     productDescription.textContent = `Description: ${product.description}`;
 
+    const quantityInput = document.createElement("input");
+    quantityInput.type = "number";
+    quantityInput.value = 1; // Valor inicial de la cantidad
+    quantityInput.min = 1; // Valor mínimo permitido
+    quantityInput.classList.add("quantity-input");
+
     const carrito = document.createElement("button");
-    console.log(carrito);
-    carrito.classList.add("comprar")
-    carrito.innerHTML = "Add to cart"
+    carrito.classList.add("comprar");
+    carrito.innerHTML = "Add to cart";
     carrito.addEventListener("click", function () {
-      addToCart(product);
-    })
+      addToCart(product, parseInt(quantityInput.value));
+    });
 
     closeBtn.onclick = function () {
       modal.style.display = "none";
     };
 
-    productTitle.appendChild(closeBtn);
     modalContent.appendChild(closeBtn);
     modalContent.appendChild(productTitle);
     modalContent.appendChild(productImage);
     modalContent.appendChild(productPrice);
     modalContent.appendChild(productRating);
     modalContent.appendChild(productDescription);
+    modalContent.appendChild(quantityInput);
     modalContent.appendChild(carrito);
 
     modal.appendChild(modalContent);
@@ -152,19 +153,17 @@ closeButton.addEventListener("click", function () {
   cartModal.style.display = "none"; // Hide the modal
 });
 
-
 // Function to update cart display
 
 function updateCartDisplay() {
   const cartItemsList = document.getElementById("cart-items-list"); // Replace with your cart UI element ID
   cartItemsList.innerHTML = ""; // Clear previous items
 
-  
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   if (cart.length === 0) {
-    cartItemsList.innerHTML = '<li>Your cart is empty</li>';
-    
+    cartItemsList.innerHTML = "<li>Your cart is empty</li>";
+
     return;
   }
 
@@ -181,10 +180,6 @@ function updateCartDisplay() {
     total += product.price * product.quantity;
   });
 
-  const cartTotalElement = document.getElementById("cart-total"); 
+  const cartTotalElement = document.getElementById("cart-total");
   cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
 }
-
-
-
-
