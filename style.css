@@ -8,6 +8,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: content-box;
+  color: #f16d1c;
+  line-height: 1.2px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 14px;
+  font-style: normal;
 }
 
 body {
@@ -17,7 +24,7 @@ body {
 }
 
 header {
-  padding: 10px 20px;
+  padding: 40px 20px;
 }
 
 .container_navbar {
@@ -26,42 +33,208 @@ header {
   align-items: center;
 }
 
-.toggle_menu {
-  width: 20px;
-  height: 20px;
+#search {
+  background-image: url(./lupa.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 98% center;
+  padding-right: 20px;
+  width: 200px;
+  height: 30px;
+  border: 2px solid #f7f5f8;
+  border-radius: 10px;
 }
-
-.lens {
-  width: 20px;
-  height: 20px;
+.toggle_menu {
+  width: 30px;
+  height: 30px;
   margin-left: 10px;
 }
 
+/* .lens{
+  width: 10px;
+  height: 10px;
+  margin-left: 1px;
+} */
+
 .user,
 .shoping_cart {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   margin-left: 10px;
 }
 
 main {
   text-align: center;
+  border-top: 2px solid #eee9e9;
+}
+
+/* Estilos para el modal */
+
+.contenido {
+  display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 11px;
+    margin-left: 1rem;
+    flex-direction: row-reverse;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #54535380; /* Fondo oscuro semi-transparente */
+  overflow: auto;
+}
+
+.modal img {
+  width: 80%;
+  /* height: 50%; */
+  display: flex;
+  margin-left: 40px;
+}
+.modal h2 {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  text-align: justify;
+}
+.modal p{
+  font-family: "Lato", sans-serif;
+  color: #f16d1c;
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 0.6em;
+  border-radius: 0.3em;
+}
+
+ 
+
+/* Muestra el modal cuando se hace clic en el botón */
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 95%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos para las tarjetas de producto */
+.card-products {
+  border: 1px solid #f16d1c;
+  border-radius: 5px;
+  margin: 7px;
+  /* padding: 10px; */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.card-products:hover {
+  transform: scale(1.05);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  width: 95px;
+  height: 95px;
+  border: 1px solid #f16d1c;
+  background-color: #86c4f3;
+  text-align: center;
+}
+.comprar{
+  border: 1px solid #f16d1c;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #f16d1c;
+  padding: 3px 17px;
+  background-color: #86c4f3;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.product-card img {
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-top: 7px;
+  margin-left: 16px;
+}
+.product-card h2 {
+  font-size: 0.5rem;
+  line-height: 1.5;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.price-and-rating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.fa-star {
+  color: orange;
 }
 
 h2 {
-  margin: 10px 0;
+  margin: 35px 0;
+  font-size: 44px;
+  text-align: center;
 }
 
-.product_bar {
-  padding: 10px 20px;
+.product_car {
+  padding: 29px 20px;
+  border-top: 2px solid #eee9e9;
 }
 
 .product_bar ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 5px;
+  margin: 4px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .product_bar ul li {
@@ -69,16 +242,141 @@ h2 {
 }
 
 .product_bar ul li a {
+  border: 1px solid #f7f5f8;
+  border-radius: 16px;
   text-decoration: none;
-  color: black;
-  padding: 5px 10px;
+  color: #f16d1c;
+  padding: 3px 17px;
+  background-color: #f7f5f8;
 }
 
-.product_cards {
+.product_card {
   width: 30%;
+  height: 100px;
   float: left;
   box-sizing: border-box;
   padding: 10px;
   margin: 10px;
-  border: 1px solid #ddd;
+  border: 2px solid #f16d1c;
+  border-radius: 10px;
+  background-color: #46a6ea;
+}
+
+/* footer */
+
+footer {
+  position: sticky;
+  width: 100%;
+  border-top: 2px solid #eee9e9;
+}
+
+.whatsapp,
+.facebook,
+.instagram {
+  width: 30px;
+  height: 30px;
+  margin-left: 1px;
+  text-align: center;
+}
+
+.social_media {
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.social_media ul {
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px;
+}
+.social_media ul li {
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.social_media li a {
+  color: #fff;
+}
+
+.social_media li a img {
+  width: 40px;
+  height: 30px;
+}
+
+/*estilo carrito compras*/
+.modal-carrito {
+  display: none; 
+  position: fixed; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.4); 
+}
+
+.modal-content {
+  background-color: #fff; 
+  margin: 15% auto; 
+  padding: 20px; 
+  border: 1px solid #888; 
+  width: 80%; 
+}
+
+.close {
+  color: #aaa;
+  float: right; 
+  font-weight: bold;
+  cursor: pointer; 
+}
+
+.close:hover, .close:focus {
+  color: black; 
+  text-decoration: none; 
+}
+
+/* .cart-section {
+  overflow: auto; 
+} */
+
+.cart-section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#cart-items-list {
+  width: 100%; 
+  max-width: 600px; 
+}
+
+
+#cart-items-list li {
+  padding: 30px; 
+  border-bottom: 1px solid #ddd;
+  line-height: normal;
+}
+
+
+#cart-total {
+  margin-top: 29px; 
+}
+
+
+/* RESPONSIBE*/
+
+.container_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* iPhone 14 Pro Max */
+@media only screen and (max-width: 428px) {
+  .container_navbar {
+    flex-wrap: wrap;
+  }
 }

@@ -1,56 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>shopall</title>
-  </head>
-  <body>
-    <header>
-      <div class="container_navbar">
-        <img class="toggle_menu" src="/toggle_menu.png" alt="" srcset="" />
-        <div>
-          <input type="text" />
-          <img class="lens" src="/lens.png" alt="" srcset="" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>shopall</title>
+</head>
+
+<body>
+  <header>
+    <div class="container_navbar">
+      <img class="toggle_menu" src="/toggle_menu.png" alt="" srcset="" />
+      <form action="#" method="get">
+        <input type="text" name="search" id="search" placeholder="Buscar" />
+      </form>
+      <img class="user" src="/users.png" alt="" srcset="" />
+      <img class="shoping_cart" id="shopping-cart" src="/shopping_cart.png" alt="" />
+    </div>
+
+    <div id="cart-modal" class="modal-carrito">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="cart-section">
+          <h2>Your Cart</h2>
+          <ul id="cart-items-list"></ul>
+          <p id="cart-total"></p>
         </div>
-        <img class="user" src="/users.png" alt="" srcset="" />
-        <img class="shoping_cart" src="/shopping_cart.png" alt="" />
       </div>
-    </header>
-    <div>
-      <main><h2>Shopall</h2></main>
     </div>
-    <div class="product_bar">
-      <ul>
-        <li>
-          <a href="">electronis</a>
-        </li>
-        <li>
-          <a href="">jewerely</a>
-        </li>
-        <li>
-          <a href="">men</a>
-        </li>
-        <li>
-          <a href="">women</a>
-        </li>
-      </ul>
+    
+  </header>
+  <div>
+    <main>
+      <h2>Shopall</h2>
+      <div class="product_bar">
+        <ul>
+          <li>
+            <a href="">electronis</a>
+          </li>
+          <li>
+            <a href="">jewerely</a>
+          </li>
+          <li>
+            <a href="">mens</a>
+          </li>
+          <li>
+            <a href="">women</a>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
+  <div class="contenido">
+    
+    
+  </div>
+ 
+  </div>
+  <footer>
+    <div class="social_media">
+      <img src="/whatsapp.png" alt="" class="whatsapp" />
+      <img src="/facebook.png" alt="" class="facebook" />
+      <img src="/instagram.png" alt="" class="instagram" />
     </div>
-    <div class="product_cards"></div>
-    <footer>
-      <div class="social_media"></div>
-      <ul>
-        <li>
-          <a href=""><img src="/whatsapp.png" alt="" /></a>
-        </li>
-        <li>
-          <a href=""><img src="/facebook.png" alt="" /></a>
-        </li>
-        <li>
-          <a href=""><img src="/instagram.png" alt="" /></a>
-        </li>
-      </ul>
-    </footer>
-  </body>
+  </footer>
+  <script src="app.js"></script>
+</body>
+
 </html>
